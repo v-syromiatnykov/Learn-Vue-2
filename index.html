@@ -6,26 +6,37 @@
 </head>
 <body>
 <div id="root">
-    <input type="text" id="input" v-model="message">
+    <!--<input type="text" id="input" v-model="message">-->
 
-    <p>Message: {{ message }}</p>
+    <!--<p>Message: {{ message }}</p>-->
+    <ul>
+        <li v-for="name in names" v-text="name"></li>
+    </ul>
+
+    <input type="text" id="input">
+    <button id="button">Add name</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
 <script>
-    let data = {
-        message: 'Hello world'
-    };
-
     // document.querySelector('#input').value = data.message;
-    new Vue({
+    let app = new Vue({
         el: '#root',
         data: {
-            message: 'Hello world'
-        }
-    })
+            names: ['Vilgefortz', 'Dandellion', 'Geralt', 'Zirael']
+        },
 
+        mounted() {
+            document.querySelector('#button').addEventListener('click', () => {
+                let name = document.querySelector('#input');
+
+                app.names.push(name.value);
+
+                name.value = '';
+            });
+        }
+    });
 </script>
 
 </body>
