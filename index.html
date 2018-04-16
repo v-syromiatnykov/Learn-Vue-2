@@ -3,19 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style type="text/css">
+        .color-red { color: red; }
+        .is-loading { background: yellow;}
+    </style>
 </head>
 <body>
 <div id="root">
     <!--<input type="text" id="input" v-model="message">-->
 
     <!--<p>Message: {{ message }}</p>-->
-    <ul>
-        <li v-for="name in names" v-text="name"></li>
-    </ul>
+    <div>
+        <ul>
+            <li v-for="name in names" v-text="name"></li>
+        </ul>
 
-    <input type="text" id="input" v-model="newName">
+        <input type="text" id="input" v-model="newName">
 
-    <button @click="addName">Add name</button>
+        <button @click="addName">Add name</button> <!--"@click" shorthand for "v-on:click"-->
+    </div>
+
+    <hr>
+
+    <div>
+        <button :title="title">Hover over me</button> <!--":title" shorthand for "v-bind:title"-->
+    </div>
+
+    <hr>
+
+    <button :class="{ 'is-loading': isLoading }" @click="toggleClass">some text here</button>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -25,8 +43,11 @@
         el: '#root',
 
         data: {
+            title: 'The title is set through JS',
             newName: '',
-            names: ['Vilgefortz', 'Dandellion', 'Geralt', 'Zirael']
+            names: ['Vilgefortz', 'Dandellion', 'Geralt', 'Zirael'],
+            className: 'color-red',
+            isLoading: false
         },
 
         methods: {
@@ -34,6 +55,10 @@
                 this.names.push(this.newName);
 
                 this.newName = '';
+            },
+
+            toggleClass() {
+                this.isLoading = ! this.isLoading;
             }
         },
     });
