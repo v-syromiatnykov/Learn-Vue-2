@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,29 +13,29 @@
         <li v-for="name in names" v-text="name"></li>
     </ul>
 
-    <input type="text" id="input">
-    <button id="button">Add name</button>
+    <input type="text" id="input" v-model="newName">
+
+    <button @click="addName">Add name</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
 <script>
-    // document.querySelector('#input').value = data.message;
     let app = new Vue({
         el: '#root',
+
         data: {
+            newName: '',
             names: ['Vilgefortz', 'Dandellion', 'Geralt', 'Zirael']
         },
 
-        mounted() {
-            document.querySelector('#button').addEventListener('click', () => {
-                let name = document.querySelector('#input');
+        methods: {
+            addName() {
+                this.names.push(this.newName);
 
-                app.names.push(name.value);
-
-                name.value = '';
-            });
-        }
+                this.newName = '';
+            }
+        },
     });
 </script>
 
