@@ -8,7 +8,7 @@
         <title>Laravel</title>
     </head>
     <body>
-        <div id="root">
+        <div id="app">
             <ul>
                 <li v-for="skill in skills" v-text="skill"></li>
             </ul>

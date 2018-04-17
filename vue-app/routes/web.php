@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/skills', function () {
     return ['laravel', 'vue', 'react', 'angular'];
 });
+
+Route::get('projects/create', 'ProjectsController@create');
+Route::post('projects', 'ProjectsController@store');
