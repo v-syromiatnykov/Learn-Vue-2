@@ -63,7 +63,6 @@ Vue.component('modal', {
         </div>
 </div>
     `,
-
 });
 
 Vue.component('tabs', {
@@ -142,6 +141,12 @@ Vue.component('coupon', {
             // variant 2
             Event.$emit('applied');
         }
+    }
+});
+
+Vue.component('progress-view', {
+    data() {
+        return { completionRate: 65 }
     }
 });
 
