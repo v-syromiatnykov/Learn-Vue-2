@@ -103,10 +103,29 @@ Vue.component('tab', {
     }
 });
 
+Vue.component('coupon', {
+    template: `<input placeholder="you code here..." @blur="onCouponApplied">`,
+
+    methods: {
+        onCouponApplied() {
+            let data = {'code' : '987643467'};
+
+            this.$emit('coupon-was-applied', event);
+        }
+    }
+});
+
 new Vue({
     el: '#root',
 
     data: {
         showModal: false
+    },
+
+    methods: {
+        onCouponApplied($event) {
+            console.log($event);
+            alert('It was applied');
+        }
     }
 });

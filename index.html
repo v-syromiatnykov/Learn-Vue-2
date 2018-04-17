@@ -14,16 +14,19 @@
 </head>
 <body>
 <div id="root" class="container">
-    <message title="Hello World"
-             body="Lorem ipsum dolor sit amet."></message>
-    <message title="dfsghjdfghjdfh"
-             body="sdfgsdfgs dsfgjfg hjdf sdf."></message>
 
-    <modal v-show="showModal" @close="showModal = false">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem facere provident quas quisquam quod soluta sunt, unde ut. Tempore, voluptatum.</p>
-    </modal>
+    <div>
+        <message title="Hello World"
+                 body="Lorem ipsum dolor sit amet."></message>
+        <message title="dfsghjdfghjdfh"
+                 body="sdfgsdfgs dsfgjfg hjdf sdf."></message>
 
-    <button @click="showModal = true">Show modal</button>
+        <modal v-show="showModal" @close="showModal = false">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem facere provident quas quisquam quod soluta sunt, unde ut. Tempore, voluptatum.</p>
+        </modal>
+
+        <button @click="showModal = true">Show modal</button>
+    </div>
 
     <tabs>
         <tab name="Tab asdfasdf 1" :selected="true">
@@ -39,6 +42,10 @@
             <h1>Tab 4 Lorem ipsum dolor sit amet, consectetur.</h1>
         </tab>
     </tabs>
+
+    <hr>
+
+    <coupon @coupon-was-applied="onCouponApplied"></coupon>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
