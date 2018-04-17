@@ -103,14 +103,19 @@ Vue.component('tab', {
     }
 });
 
+window.Event = new Vue();
+
 Vue.component('coupon', {
     template: `<input placeholder="you code here..." @blur="onCouponApplied">`,
 
     methods: {
         onCouponApplied() {
+            // variant 1
             let data = {'code' : '987643467'};
+            this.$emit('coupon-was-applied', data);
 
-            this.$emit('coupon-was-applied', event);
+            // variant 2
+            Event.$emit('applied');
         }
     }
 });
@@ -123,9 +128,13 @@ new Vue({
     },
 
     methods: {
-        onCouponApplied($event) {
-            console.log($event);
-            alert('It was applied');
-        }
+        onCouponApplied(data) {
+            console.log(data);
+            console.log('It was applied');
+        },
+    },
+
+    created() {
+        Event.$on('applied', () => alert('handling it...'));
     }
 });
