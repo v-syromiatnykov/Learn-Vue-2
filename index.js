@@ -26,17 +26,42 @@ Vue.component('message', {
 
 Vue.component('modal', {
     template: `
+        <!--<div class="modal is-active">-->
+        <!--<div class="modal-background"></div>-->
+        <!--<div class="modal-content">-->
+            <!--<div class="box">-->
+                <!--<slot></slot>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<button class="modal-close is-large"-->
+         <!--aria-label="close"-->
+         <!--@click="$emit('close')"></button>-->
+        <!--</div>-->
+        
         <div class="modal is-active">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <slot></slot>
-            </div>
+            <div class="modal-background"></div>
+            
+            <div class="modal-card">
+            
+            <header class="modal-card-head">
+                <p class="modal-card-title">
+                    <slot name="header"></slot>
+                </p>
+                
+                <button class="delete" aria-label="close"></button>
+            </header>
+            
+            <section class="modal-card-body">
+                <slot>default content</slot>
+            </section>
+            
+            <footer class="modal-card-foot">
+                <slot name="footer">
+                    <a class="button is-primary">Okey</a>
+                </slot>
+            </footer>
         </div>
-        <button class="modal-close is-large"
-         aria-label="close"
-         @click="$emit('close')"></button>
-    </div>
+</div>
     `,
 
 });
