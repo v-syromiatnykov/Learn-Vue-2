@@ -8,11 +8,19 @@
         <title>Laravel</title>
     </head>
     <body>
-        <div id="app">
-            <ul>
-                <li v-for="skill in skills" v-text="skill"></li>
-            </ul>
-        </div>
+        {{--<div id="app">--}}
+            {{--<ul>--}}
+                {{--<li v-for="skill in skills" v-text="skill"></li>--}}
+            {{--</ul>--}}
+        {{--</div>--}}
+
+       <div id="one">
+           <h1>@{{ user.name }}</h1>
+       </div>
+
+       <div id="two">
+           <h1>@{{ user.name }}</h1>
+       </div>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
