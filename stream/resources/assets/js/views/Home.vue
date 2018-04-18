@@ -8,7 +8,7 @@
                             {{ status.user.name }} said...
                         </p>
 
-                        {{ postedOn(status) }}
+                        {{ status.created_at | ago }}
                     </div>
 
                     <div class="message-body" v-text="status.body"></div>
@@ -29,6 +29,12 @@
             }
         },
 
+        filters: {
+            ago(date) {
+                return moment(date).fromNow();
+            }
+        },
+
         mounted() {
             console.log('Component mounted.');
         },
@@ -36,12 +42,6 @@
         created() {
             console.log('Component created.');
             Status.all(statuses => this.statuses = statuses);
-        },
-
-        methods: {
-            postedOn(status) {
-                return moment(status.created_at).fromNow();
-            }
         }
     }
 </script>
