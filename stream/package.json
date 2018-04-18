@@ -17,6 +17,7 @@
         "vue-router": "^3.0.1"
     },
     "dependencies": {
-        "ajv": "^6.4.0"
+        "ajv": "^6.4.0",
+        "moment": "^2.22.1"
     }
 }
