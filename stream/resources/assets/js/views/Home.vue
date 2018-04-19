@@ -13,6 +13,8 @@
 
                     <div class="message-body" v-text="status.body"></div>
                 </div>
+
+                <add-to-stream @statusSubmitted="addToStream"></add-to-stream>
             </div>
         </div>
     </div>
@@ -21,8 +23,11 @@
 <script>
     import moment from 'moment';
     import Status from '../models/Status';
+    import AddToStream from '../components/AddToStream';
 
     export default {
+        components: { AddToStream },
+
         data() {
             return {
                 statuses: []
@@ -42,6 +47,13 @@
         created() {
             console.log('Component created.');
             Status.all(statuses => this.statuses = statuses);
+        },
+
+        methods: {
+            addToStream(status) {
+                // console.log(status);
+                this.statuses.unshift(status);
+            }
         }
     }
 </script>
