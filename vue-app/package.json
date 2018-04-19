@@ -19,5 +19,9 @@
         "popper.js": "^1.12",
         "vue": "^2.5.7",
         "vue-router": "^3.0.1"
+    },
+    "dependencies": {
+        "ajv": "^6.4.0",
+        "flickity": "^2.1.1"
     }
 }

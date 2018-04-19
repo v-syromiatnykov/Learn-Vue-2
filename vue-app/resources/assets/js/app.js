@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('menu-list', require('./components/MenuList.vue'));
+Vue.component('carousel', require('./components/Carousel.vue'));
 
 const app = new Vue({
     el: '#app'
