@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -15,13 +16,20 @@
                 {{--<li v-for="skill in skills" v-text="skill"></li>--}}
             {{--</ul>--}}
 
-            <div class="form-group">
-                <div class="form-control">
+            <menu-list :items="['one', 'two', 'three']">
+                <template slot-scope="props">
+                    <h2 v-text="props.item"></h2>
+                </template>
+            </menu-list>
+
+
+            {{--<div class="form-group">--}}
+                {{--<div class="form-control">--}}
                     {{--<input type="text" v-model="coupon">--}}
                     {{--<input type="text" :value="coupon" @input="coupon = $event.target.value">--}}
-                    <coupon v-model="coupon">
-                </div>
-            </div>
+                    {{--<coupon v-model="coupon">--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
 
        {{--<div id="one">--}}
